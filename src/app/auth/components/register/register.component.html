@@ -1,7 +1,7 @@
 <div class="center-form">
-    <img src="../../../assets/logo3.png" alt="logo"/>
-    <h2>Enter Details to Register</h2>
-    <form nz-form [formGroup]="registerForm" class="custom-form">
+    <img src="../../../assets/logo.png" alt="logo"/>
+    <h3>Enter Details to Register</h3>
+    <form nz-form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="custom-form">
         <nz-form-item>
             <nz-form-control nzErrorTip="Please Input Your Name">
                 <nz-input-group nzPrefixIcon="idcard">
@@ -27,5 +27,6 @@
         </nz-form-item>
 
         <button nz-button nzType="primary" nzBlock [disabled]="registerForm.invalid" class="w-100">Register</button>
+   
     </form>
 </div>
