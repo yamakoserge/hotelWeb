@@ -13,13 +13,15 @@ import { provideHttpClient } from '@angular/common/http';
 import {NzLayoutComponent} from "ng-zorro-antd/layout";
 import { DemoNgZorroAntdModule } from './DemoNgZorroAntModule';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { LoginComponent } from './auth/components/login/login.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
