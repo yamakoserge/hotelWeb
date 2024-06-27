@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserStorageService } from '../../services/storages/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,15 @@ export class LoginComponent {
     submitForm(){
       this.authService.login(this.loginForm.value).subscribe(res=>{
         console.log(res);
-      },error=>{
+        if(res.userId != null){
+          const user = {
+            id:res.userId,
+            role:res.userRole
+          }
+          UserStorageService.saveUser(user);
+          UserStorageService.saveToken(res.jwt);
+        }
+      }, error=>{
         this.message
         .error(
           `Username and password not Valid` ,
