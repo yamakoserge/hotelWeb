@@ -41,7 +41,7 @@ export class UserStorageService {
     return user.role;
   }
 
-  static IsAdminLoggedIn(): boolean{
+  static isAdminLoggedIn(): boolean{
     if(this.getToken === null){
       return false;
     }
@@ -49,7 +49,7 @@ export class UserStorageService {
     return role == 'ADMIN';
   }
 
-  static IsCustomerLoggedIn(): boolean{
+  static isCustomerLoggedIn(): boolean{
     if(this.getToken === null){
       return false;
     }
