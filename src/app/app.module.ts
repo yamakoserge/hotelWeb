@@ -10,10 +10,11 @@ import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
-import {NzLayoutComponent} from "ng-zorro-antd/layout";
+import { NzLayoutComponent } from 'ng-zorro-antd/layout';
 import { DemoNgZorroAntdModule } from './DemoNgZorroAntModule';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { LoginComponent } from './auth/components/login/login.component';
+import { UpdateRoomComponent } from './modules/admin/components/update-room/update-room.component';
 
 registerLocaleData(en);
 
@@ -21,21 +22,22 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateRoomComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        NzLayoutComponent,
-        DemoNgZorroAntdModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    NzLayoutComponent,
+    DemoNgZorroAntdModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
