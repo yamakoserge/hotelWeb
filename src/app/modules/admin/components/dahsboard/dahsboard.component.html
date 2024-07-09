@@ -6,7 +6,7 @@
         <div class="room-row" *ngFor="let room of rooms">
 
             <nz-card style="width: 300px; margin: 16px;" [nzActions]="[actionEdit, actionDelete]">
-                <nz-skeleton [nzActive]="true" [nzLoading]="'false'" [nzAvatar]="{size: `large`}">
+                <nz-skeleton [nzActive]="true"  [nzLoading]="loading" [nzAvatar]="{size: 'large'}">
                     <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="{{room.name}}"
                     nzDescription="Type: {{ room.type}}">
 
@@ -17,7 +17,7 @@
 
             <ng-template #avatarTemplate>
                 <nz-avatar 
-                nzSrc="...........">
+                nzSrc="https://www.tresor-hotel.com/FR/assets/img/deluxe_room.jpg">
                     
                 </nz-avatar>
             </ng-template>
@@ -31,4 +31,8 @@
             </ng-template>
         </div>
      </div>
+        <div class="ant-pagination">
+            <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1" (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+        </div>
+
 </div>
