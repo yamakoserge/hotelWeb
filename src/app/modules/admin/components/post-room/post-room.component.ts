@@ -24,7 +24,7 @@ export class PostRoomComponent {
       name:['', Validators.required],
       type:['', Validators.required],
       price:['', Validators.required]
-    })
+    });
 
   }
   submitForm(){

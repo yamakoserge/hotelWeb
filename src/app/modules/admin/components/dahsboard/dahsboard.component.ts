@@ -32,4 +32,6 @@ export class DahsboardComponent {
     this.currentPage = value;
     this.getRooms();
   }
+
+ 
 }
