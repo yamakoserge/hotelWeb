@@ -1,3 +1,4 @@
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { Component } from '@angular/core';
 import { AdminService } from '../../Admin-services/admin.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -12,10 +13,12 @@ export class DahsboardComponent {
   rooms = [];
   total: any;
   loading = false;
+  
 
   constructor(
     private adminService: AdminService,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private modalService: NzModalService,
   ) {
     this.getRooms();
   }
@@ -33,5 +36,25 @@ export class DahsboardComponent {
     this.getRooms();
   }
 
+  showConfirm(roomId:number){
+    this.modalService.confirm({
+      nzTitle: `Confirm`,
+      nzContent: `Do you want to delete this room ?`,
+      nzOkText: `Delete`,
+      nzCancelText: `Cancel`,
+      nzOnOk:()=>this.deleteRoom(roomId)
+    })
+  }
+
+  deleteRoom(roomId:number){
+    this.adminService.deleteRoom(roomId).subscribe(res=>{
+      this.message
+      .success(
+        `Room Delete Successfully`,{nzDuration:3000}
+    );
+    },error=>{
+      this.message.error(`${error.error}`, {nzDuration:3000});
+    })
+  }
  
 }

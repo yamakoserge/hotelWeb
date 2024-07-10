@@ -28,13 +28,17 @@ export class AdminService {
     });
   }
 
-  updateRoomDetails(id:number,roomDto:any): Observable<any>{
-    return this.http.put(BASIC_URL+ `api/admin/room/${id}`,roomDto,{
+  updateRoomDetails(id: number, roomDto: any): Observable<any> {
+    return this.http.put(BASIC_URL + `api/admin/room/${id}`, roomDto, {
       headers: this.createAuthorizationHeader(),
     });
   }
-  
-  
+
+  deleteRoom(roomId: number): Observable<any> {
+    return this.http.delete(BASIC_URL + `api/admin/room/${roomId}`, {
+      headers: this.createAuthorizationHeader(),
+    });
+  }
 
   createAuthorizationHeader() {
     let authheaders: HttpHeaders = new HttpHeaders();
