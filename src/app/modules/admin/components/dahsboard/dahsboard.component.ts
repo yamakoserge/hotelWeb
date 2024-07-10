@@ -46,13 +46,16 @@ export class DahsboardComponent {
   }
 
   deleteRoom(roomId: number) {
-    this.adminService.deleteRoom(roomId).subscribe(
-      (res) => {
-        this.message.success(`Room Delete Successfully`, { nzDuration: 3000 });
-      },
-      (error) => {
-        this.message.error(`${error.error}`, { nzDuration: 3000 });
-      }
-    );
+    this.adminService.deleteRoom(roomId).subscribe(res =>{
+      this.message
+      .success(
+        `Room Deleted Successfully`,
+        {nzDuration:3000}
+      );
+      this.getRooms();
+    },error=>{
+      this.message.error(`${error.error}`, { nzDuration: 3000 });
+    })
+    
   }
 }
