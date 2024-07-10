@@ -13,21 +13,20 @@ export class DahsboardComponent {
   rooms = [];
   total: any;
   loading = false;
-  
 
   constructor(
     private adminService: AdminService,
     private message: NzMessageService,
-    private modalService: NzModalService,
+    private modalService: NzModalService
   ) {
     this.getRooms();
   }
 
   getRooms() {
-    this.adminService.getRooms(this.currentPage - 1).subscribe((res) => {
+    this.adminService.getRooms(this.currentPage - 1).subscribe(res=> {
       console.log(res);
       this.rooms = res.roomDtoList;
-      this.total = res.totalpages * 1;
+      this.total = res.totalPages * 1;
     });
   }
 
@@ -36,25 +35,24 @@ export class DahsboardComponent {
     this.getRooms();
   }
 
-  showConfirm(roomId:number){
+  showConfirm(roomId: number) {
     this.modalService.confirm({
       nzTitle: `Confirm`,
       nzContent: `Do you want to delete this room ?`,
       nzOkText: `Delete`,
       nzCancelText: `Cancel`,
-      nzOnOk:()=>this.deleteRoom(roomId)
-    })
+      nzOnOk: () => this.deleteRoom(roomId),
+    });
   }
 
-  deleteRoom(roomId:number){
-    this.adminService.deleteRoom(roomId).subscribe(res=>{
-      this.message
-      .success(
-        `Room Delete Successfully`,{nzDuration:3000}
+  deleteRoom(roomId: number) {
+    this.adminService.deleteRoom(roomId).subscribe(
+      (res) => {
+        this.message.success(`Room Delete Successfully`, { nzDuration: 3000 });
+      },
+      (error) => {
+        this.message.error(`${error.error}`, { nzDuration: 3000 });
+      }
     );
-    },error=>{
-      this.message.error(`${error.error}`, {nzDuration:3000});
-    })
   }
- 
 }

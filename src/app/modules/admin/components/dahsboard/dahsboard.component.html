@@ -1,5 +1,5 @@
 <div class="center-form">
-    <button nz-button nzType="primary" class="post-rooms-btn"
+    <button nz-button nzType="primary" class="post-room-btn"
      routerLink="/admin/room">Post Room</button>
 
      <div class="room-container">
@@ -31,7 +31,7 @@
             </ng-template>
         </div>
      </div>
-        <div class="ant-pagination">
+        <div class="pagination">
             <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1" (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
         </div>
 
