@@ -5,7 +5,8 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { DemoNgZorroAntdModule } from '../../DemoNgZorroAntModule';
-import { TestComponent } from './components/test/test.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -13,12 +14,12 @@ import { TestComponent } from './components/test/test.component';
   declarations: [
     CustomerComponent,
     RoomsComponent,
-    TestComponent,
   
     
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CustomerRoutingModule,
     DemoNgZorroAntdModule
   ]

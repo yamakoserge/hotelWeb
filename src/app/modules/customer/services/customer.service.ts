@@ -17,6 +17,12 @@ export class CustomerService {
     });
   }
 
+  bookingRoom(bookingDto: any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/customer/book `, bookingDto, {
+      headers: this.createAuthorizationHeader(),
+    });
+  }
+
   createAuthorizationHeader() {
     let authheaders: HttpHeaders = new HttpHeaders();
     return authheaders.set(
