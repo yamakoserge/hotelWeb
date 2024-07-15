@@ -50,14 +50,16 @@
 
 <nz-modal
   nzTitle="Book Room"
-  nzContered
-  [(nzVisible)]="isVisibleMiddle"
+  nzCentered
+  [(nzVisible)]= "isVisibleMiddle"
   (nzOnCancel)="handleCancelMiddle()"
   (nzOnOk)="handleOkMiddle()"
 >
   <ng-container *nzModalContent>
     <div class="modal-content">
-      <nz-range-picker style="width: 100%"[(ngModel)]="date" (ngModelChange)="onChange($event)"> </nz-range-picker>
+      <nz-range-picker style="width: 100%;"[(ngModel)]="date"
+       (ngModelChange)="onChange($event)"> 
+      </nz-range-picker>
     </div>
   </ng-container>
 </nz-modal>

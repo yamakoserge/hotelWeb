@@ -60,7 +60,7 @@ export class RoomsComponent {
       roomId: this.id,
       checkInDate: this.checkInDate,
       checkOutDate: this.checkOutDate,
-    };
+    }
 
     this.customerService.bookingRoom(obj).subscribe(res => {
         this.message.success(`Request submitted for approval !`,
