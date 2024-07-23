@@ -46,7 +46,7 @@ export class RoomsComponent {
   onChange(result: Date[]) {
     if (result.length === 2) {
       this.checkInDate = result[0];
-      this.checkOutDate = result[1];
+      this.checkOutDate = result[1]
     }
   }
 
@@ -62,15 +62,20 @@ export class RoomsComponent {
       checkOutDate: this.checkOutDate,
     }
 
-    this.customerService.bookingRoom(obj).subscribe(res => {
-        this.message.success(`Request submitted for approval !`,
-           {nzDuration: 3000},
+    this.customerService.bookRoom(obj).subscribe(res => {
+        this.message
+        .success(
+          `Request submitted for approval !`,
+           {nzDuration: 3000}
           );
         this.isVisibleMiddle = false;
-      },error => {
-        this.message.error(`${error.error}`, { nzDuration: 3000 }
-        );
-      });
+      },error=>{
+        this.message
+        .error(
+          `${error.error}`, 
+          { nzDuration: 3000 }
+        )
+      })
   }
 
   showModalMiddle(id: number) {
