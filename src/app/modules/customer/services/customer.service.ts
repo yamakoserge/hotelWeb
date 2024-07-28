@@ -9,6 +9,7 @@ const BASIC_URL = "http://localhost:8091/";
   providedIn: 'root',
 })
 export class CustomerService {
+  
   constructor(private http: HttpClient) {}
 
   getRooms(pageNumber: number): Observable<any> {

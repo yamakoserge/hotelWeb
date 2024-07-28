@@ -19,7 +19,9 @@ export class RoomsComponent {
     private customerService: CustomerService,
     private message: NzMessageService,
     private modalService: NzModalService
-  ) {
+  ) 
+    
+  {
     this.getRooms();
   }
 
